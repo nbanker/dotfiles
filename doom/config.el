@@ -99,11 +99,30 @@
 
 ;; enable all analyzers; not done by default
 (after! lsp-mode
-  (setq  lsp-go-analyses '((fieldalignment . t)
-                           (nilness . t)
-                           (shadow . t)
-                           (unusedparams . t)
-                           (unusedwrite . t)
-                           (useany . t)
-                           (unusedvariable . t)))
+  (setq  lsp-go-analyses
+         '((fieldalignment . t)
+           (nilness . t)
+           (shadow . t)
+           (unusedparams . t)
+           (unusedwrite . t)
+           (useany . t)
+           (unusedvariable . t)))
   )
+
+;; set LLM
+(setq
+ gptel-model 'claude-3-5-sonnet-20241022	 ;  "https://github.com/anthropics/courses/blob/master/anthropic_api_fundamentals/03_models.ipynb
+ gptel-backend (gptel-make-anthropic "Claude"
+                 :stream t :key "${ADD_ANTHROPIC_KEY}"))
+
+;; ;; config DevDocs
+;; (use-package! devdocs
+;;   :config
+;;   (setq devdocs-data-dir (expand-file-name "devdocs" doom-core-dir))
+;;   (add-hook 'python-mode-hook 'devdocs-install)
+;;   (add-hook 'python-mode-hook 'devdocs-lookup-mode))
+
+
+;; Configure Kubernetes
+(use-package! kubernetes
+  :commands (kubernetes-overview))

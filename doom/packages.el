@@ -57,3 +57,13 @@
 
 ;; Theme
 (package! catppuccin-theme)
+
+;; AI chatbot
+(package! gptel)
+
+;; DevDocs
+(package! devdocs)
+
+;; Kubernetes
+(package! kubernetes)
+(package! kubernetes-evil)
